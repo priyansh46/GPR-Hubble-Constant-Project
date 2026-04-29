@@ -8,7 +8,6 @@ Hubble parameter H(z) directly from observational data,
 without assuming any cosmological model.
 
 ---
-
 ##  Background
 
 The **Hubble constant H₀** describes the current expansion 
@@ -24,6 +23,48 @@ H(z) probes to reconstruct H(z) and infer H₀ using GPR.
 
 ---
 
+
+##  Problem Statement
+
+The central question this project addresses is:
+
+> **Can we reconstruct the Hubble parameter H(z) and infer 
+> the Hubble constant H₀ from Cosmic Chronometer data alone, 
+> without assuming any specific cosmological model?**
+
+### The Challenge
+Traditional cosmological analyses fit H(z) data by assuming 
+a model (e.g., ΛCDM) with fixed parameters. This approach 
+is **model-dependent** — if the assumed model is wrong, 
+the inferred H₀ is also wrong.
+
+### Approach Used
+I used **Gaussian Process Regression (GPR)** — a 
+non-parametric Bayesian method — which:
+- Makes **no assumption** about the functional form of H(z)
+- Learns the shape of H(z) **directly from data**
+- Provides **full uncertainty quantification** (confidence bands)
+- Is driven purely by the **statistical structure** of the data
+
+
+Most GPR studies on CC data use only a **zero mean function** 
+(no prior cosmological knowledge). This project goes further by:
+
+1. **Comparing two mean functions:**
+   - Zero mean — completely model-independent
+   - ΛCDM mean — informed by Planck 2018 cosmology
+   
+2. **Comparing three covariance kernels:**
+   - RBF, Matérn (ν=2.5), Rational Quadratic
+   
+3. **Rigorous model selection** using LML, AIC, and BIC
+   to identify which GPR setup best explains the data
+
+4. **Quantifying the Hubble tension** — how many σ does 
+   our inferred H₀ deviate from Planck and SH0ES?
+
+
+---
 ##  Methodolgy
 
 ### 1. Dataset
