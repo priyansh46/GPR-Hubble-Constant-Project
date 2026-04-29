@@ -71,7 +71,7 @@ units of σ with respect to both Planck and SH0ES values.
 
 | File | Description |
 |------|-------------|
-| `Data_Science_Project.ipynb` | Full implementation notebook |
+| `GPR-Hubble-Constant-Project.ipynb` | Full implementation notebook |
 
 ---
 
